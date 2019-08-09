@@ -1,0 +1,6 @@
+{
+  "Setup": true,
+  "MasterIP": "localhost",
+  "MasterPort": 4503,
+  "ActiveDevice#": 0
+}

@@ -1,0 +1,8 @@
+C:\Users\eweiss\Desktop\A-TEAMS2\ClientRecorder\ClientRecorder\obj\Debug\netcoreapp2.1\ClientRecorder.csprojAssemblyReference.cache
+C:\Users\eweiss\Desktop\A-TEAMS2\ClientRecorder\ClientRecorder\obj\Debug\netcoreapp2.1\ClientRecorder.csproj.CoreCompileInputs.cache
+C:\Users\eweiss\Desktop\A-TEAMS2\ClientRecorder\ClientRecorder\obj\Debug\netcoreapp2.1\ClientRecorder.AssemblyInfoInputs.cache
+C:\Users\eweiss\Desktop\A-TEAMS2\ClientRecorder\ClientRecorder\obj\Debug\netcoreapp2.1\ClientRecorder.AssemblyInfo.cs
+C:\Users\eweiss\Desktop\A-TEAMS2\ClientRecorder\ClientRecorder\bin\Debug\netcoreapp2.1\ClientRecorder.deps.json
+C:\Users\eweiss\Desktop\A-TEAMS2\ClientRecorder\ClientRecorder\bin\Debug\netcoreapp2.1\ClientRecorder.runtimeconfig.json
+C:\Users\eweiss\Desktop\A-TEAMS2\ClientRecorder\ClientRecorder\bin\Debug\netcoreapp2.1\ClientRecorder.runtimeconfig.dev.json
+C:\Users\eweiss\Desktop\A-TEAMS2\ClientRecorder\ClientRecorder\bin\Debug\netcoreapp2.1\ClientRecorder.dll

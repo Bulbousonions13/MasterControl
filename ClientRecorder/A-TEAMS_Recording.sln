@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.136
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientRecorder", "ClientRecorder\ClientRecorder.csproj", "{CDEEE6A3-84B8-4783-8D59-FDCEFC8F7893}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MasterControl", "..\MasterControl\MasterControl\MasterControl.csproj", "{114A6042-C712-4094-AE2E-7D7673D8CCCA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CDEEE6A3-84B8-4783-8D59-FDCEFC8F7893}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CDEEE6A3-84B8-4783-8D59-FDCEFC8F7893}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CDEEE6A3-84B8-4783-8D59-FDCEFC8F7893}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CDEEE6A3-84B8-4783-8D59-FDCEFC8F7893}.Release|Any CPU.Build.0 = Release|Any CPU
+		{114A6042-C712-4094-AE2E-7D7673D8CCCA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{114A6042-C712-4094-AE2E-7D7673D8CCCA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{114A6042-C712-4094-AE2E-7D7673D8CCCA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{114A6042-C712-4094-AE2E-7D7673D8CCCA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5FA394A0-9346-4DF8-AB48-AAE11C09C180}
+	EndGlobalSection
+EndGlobal

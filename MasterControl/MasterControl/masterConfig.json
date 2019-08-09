@@ -1,0 +1,5 @@
+{
+  "Setup": true,
+  "MasterIP": "localhost",
+  "MasterPort": 4503
+}
