@@ -11,12 +11,17 @@ namespace ClientRecorder
         static string Filename = null;
         private int count;
         private int ActiveDevice = 0;
+        private string samplePath;
+        private int sampleCount = 0;
 
         public Recorder( int activeDevice){ 
+            
             ActiveDevice = activeDevice;
+            
+            samplePath=setupFolder();
         }
 
-        public void record(){           
+        public void record(){    
             
             Console.WriteLine();
             Console.WriteLine("Recording on Device  # 0 ");
@@ -28,8 +33,10 @@ namespace ClientRecorder
             WaveSource.DataAvailable += new EventHandler<WaveInEventArgs>(waveSource_DataAvailable);
             WaveSource.RecordingStopped += new EventHandler<StoppedEventArgs>(waveSource_RecordingStopped);
 
-            long milliseconds = (long) Math.Round(DateTime.Now.Subtract(DateTime.MinValue.AddYears(1969)).TotalMilliseconds);
-            Filename = Path.Combine(Directory.GetCurrentDirectory(), $"AudioSample_{milliseconds}.wav");
+            long milliseconds = (long) Math.Round(DateTime.Now.Subtract(DateTime.MinValue.AddYears(1969)).TotalMilliseconds);           
+            
+            Filename = Path.Combine(samplePath, $"{sampleCount}_AudioSample_{milliseconds}.wav");
+            sampleCount++;
             WaveFile = new WaveFileWriter(Filename, WaveSource.WaveFormat);
 
             WaveSource.StartRecording();      
@@ -54,7 +61,7 @@ namespace ClientRecorder
             }
         }
 
-        private static int GetStartingCount()
+        private int GetStartingCount()
         {
             int count = 1;
             string filename = Path.Combine(Directory.GetCurrentDirectory(), $"Test{count:00000}.wav");
@@ -67,7 +74,7 @@ namespace ClientRecorder
             return count;
         }
 
-        static void waveSource_DataAvailable(object sender, WaveInEventArgs e)
+        public void waveSource_DataAvailable(object sender, WaveInEventArgs e)
         {
             if (WaveFile != null)
             {
@@ -76,7 +83,7 @@ namespace ClientRecorder
             }
         }
 
-        static void waveSource_RecordingStopped(object sender, StoppedEventArgs e)
+        public void waveSource_RecordingStopped(object sender, StoppedEventArgs e)
         {
             if (WaveSource != null)
             {
@@ -89,6 +96,18 @@ namespace ClientRecorder
                 WaveFile.Dispose();
                 WaveFile = null;
             }
+        }
+
+        private string setupFolder(){ 
+
+        string samplesDirectoryPath = Directory.GetCurrentDirectory()+"\\samples";
+            if (!Directory.Exists(samplesDirectoryPath)) {
+                Directory.CreateDirectory(samplesDirectoryPath);
+            }
+            else{ 
+                sampleCount = Directory.GetFiles(samplesDirectoryPath).Length;
+            }
+            return samplesDirectoryPath;        
         }
     }
 }

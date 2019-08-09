@@ -121,3 +121,7 @@ C:\Users\eweiss\Desktop\A-TEAMS2\MasterControl\MasterControl\obj\Debug\MasterCon
 C:\Users\eweiss\Desktop\A-TEAMS2\MasterControl\MasterControl\obj\Debug\MasterControl.csproj.CopyComplete
 C:\Users\eweiss\Desktop\A-TEAMS2\MasterControl\MasterControl\obj\Debug\MasterControl.exe
 C:\Users\eweiss\Desktop\A-TEAMS2\MasterControl\MasterControl\obj\Debug\MasterControl.pdb
+C:\Users\eweiss\Desktop\A-TEAMS2\MasterControl\MasterControl\bin\Debug\masterConfig.json
+C:\Users\eweiss\Desktop\A-TEAMS2\MasterControl\MasterControl\bin\Debug\Newtonsoft.Json.dll
+C:\Users\eweiss\Desktop\A-TEAMS2\MasterControl\MasterControl\bin\Debug\Newtonsoft.Json.xml
+C:\Users\eweiss\Desktop\A-TEAMS2\MasterControl\MasterControl\obj\Debug\MasterControl.csprojAssemblyReference.cache

@@ -9,6 +9,7 @@ using System.Threading;
 using MQTTnet.Extensions.ManagedClient;
 using System;
 using MQTTnet.Server;
+using System.Globalization;
 
 namespace MasterControl
 {
@@ -16,17 +17,32 @@ namespace MasterControl
 
         private IMqttServer server;
 
+        float timeSent;
+
         public MQTTServerManager(){ 
-            server = new MqttFactory().CreateMqttServer();
-        }
-        public async Task StartServer(){ 
             
+            server = new MqttFactory().CreateMqttServer();
+
+            server.UseApplicationMessageReceivedHandler( e=> 
+            {
+                if(e.ApplicationMessage.Topic == "master/response"){
+                    Console.WriteLine("\nMassage received from client!");
+                    Console.WriteLine("ID : " + e.ClientId);
+                    Console.WriteLine("Payload : " + Encoding.UTF8.GetString(e.ApplicationMessage.Payload)); 
+                }
+            });                
+            
+
             server.UseClientConnectedHandler(c =>                
             {
-                Console.WriteLine("Client Connected !");
+                Console.WriteLine("\nClient Connected !");
                 Console.WriteLine("ID : " + c.ClientId);                
             }           
             );
+        }
+        public async Task StartServer(){ 
+            
+          
             
             var optionsBuilder = new MqttServerOptionsBuilder()
                 .WithConnectionBacklog(100)
@@ -40,6 +56,12 @@ namespace MasterControl
        }     
 
         public async void publish(string messageText, string topic){ 
+            
+            
+            Console.WriteLine("\nMaster Control is sending a message @ " + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff",
+                                            CultureInfo.InvariantCulture));
+
+            timeSent = DateTime.Now.Millisecond;
             
             var message = new MqttApplicationMessageBuilder()            
                 .WithTopic(topic)

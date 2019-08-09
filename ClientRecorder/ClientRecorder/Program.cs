@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Runtime.InteropServices;
 using Newtonsoft.Json.Linq;
 
 namespace ClientRecorder
@@ -8,12 +9,25 @@ namespace ClientRecorder
     {
         
         private static MQTTConnectionManager client;
-        
+        [DllImport("kernel32.dll", ExactSpelling = true)]
+
+        private static extern IntPtr GetConsoleWindow();
+        private static IntPtr ThisConsole = GetConsoleWindow();
+
+        [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = true)]
+
+        private static extern bool ShowWindow(IntPtr hWnd, int nCmdShow);
+        private const int HIDE = 0;
+        private const int MAXIMIZE = 3;
+        private const int MINIMIZE = 6;
+        private const int RESTORE = 9;
         
         static void Main(string[] args)
         {   
-            JObject config = JObject.Parse(File.ReadAllText(".\\clientConfig.json"));
             
+            ShowWindow(ThisConsole, MINIMIZE);
+            
+            JObject config = JObject.Parse(File.ReadAllText(".\\clientConfig.json"));
             Boolean setup = (Boolean)config["Setup"] ;
             string  MasterIP = (string)config["MasterIP"];
             int MasterPort = (int)config["MasterPort"];

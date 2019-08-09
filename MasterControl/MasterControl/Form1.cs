@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Globalization;
 using System.Windows.Forms;
 
 namespace MasterControl
@@ -21,12 +15,16 @@ namespace MasterControl
 
         private void StartRecordingButton_Click(object sender, EventArgs e)
         {
-           _manager.publish("Start Recording","master/start");
+           
+           _manager.publish("\nStart Signal sent @ "+ DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff",
+                                            CultureInfo.InvariantCulture),"master/start");
         }
 
         private void StopRecordingButton_Click(object sender, EventArgs e)
         {
-             _manager.publish("Stop Recording","master/stop");
+            
+           _manager.publish("\nStop Signal sent @ "+ DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff",
+                                            CultureInfo.InvariantCulture),"master/stop");
         }
     }
 }

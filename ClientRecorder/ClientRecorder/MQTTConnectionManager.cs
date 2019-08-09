@@ -7,6 +7,7 @@ using MQTTnet.Client;
 using MQTTnet.Extensions.ManagedClient;
 using System;
 using System.Net;
+using System.Globalization;
 
 namespace ClientRecorder
 {
@@ -85,43 +86,33 @@ namespace ClientRecorder
                 if(e.ApplicationMessage.Topic == "master/start" ){
                     if (!recording) {
                         recording=true;
+                        publish("\nStart Signal received @ "+ DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff",
+                                            CultureInfo.InvariantCulture),"master/response");
                         _recorder.record();
                     }                    
                 }
                 else if(e.ApplicationMessage.Topic == "master/stop" ){ 
                     if(recording){ 
                        recording = false;
-                        _recorder.stop();
+                       publish("\nStop Signal received @ "+ DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff",
+                                            CultureInfo.InvariantCulture),"master/response");
+                       _recorder.stop();
                     }                    
                 }               
             });
 
             client.UseDisconnectedHandler(e=>{
-                Console.WriteLine("Disconnected from mqtt broker !");
+                Console.WriteLine("\nDisconnected from mqtt broker !");
                 connected = false;
             } );
 
             client.UseConnectedHandler(c=>{
-                Console.WriteLine("Connected to mqtt broker!");
+                Console.WriteLine("\nConnected to mqtt broker!");
                 connected = true;
             });
-        }
 
-         private void recordingControl(){ 
-            Console.WriteLine("inside recordingControl");
-            if (connected) {
-                Console.WriteLine("Connected, checking status ...");
-                Console.ReadLine();
-                if(recording) {
-               
-                }
-                else{ 
-                    
-                }
             
-            }
-        
-        }
+        }         
     } 
 }
 
