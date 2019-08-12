@@ -40,14 +40,14 @@ namespace MasterControl
                 Console.ReadLine();
             } else {
 
-                Console.WriteLine("Starting Up mqttserver");          
+                   
             
-                MQTTServerManager serverManager = new MQTTServerManager();
+                MQTTServerManager serverManager = new MQTTServerManager(MasterIP,MasterPort);
                 Task.Run(async() =>                
                     {
                         Application.EnableVisualStyles();
                         Application.SetCompatibleTextRenderingDefault(false);
-                        Application.Run(new Form1(serverManager));
+                        Application.Run(new Form1(serverManager,MasterIP,MasterPort));
                     }
                 );
                 try{ 

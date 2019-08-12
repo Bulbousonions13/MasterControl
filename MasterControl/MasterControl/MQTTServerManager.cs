@@ -13,20 +13,32 @@ namespace MasterControl
     public class MQTTServerManager{ 
 
         private IMqttServer server;
+        string MasterIP;
+        int MasterPort;
 
-        float timeSent;
+        long timeSent;
 
-        public MQTTServerManager(){ 
+        public MQTTServerManager(string masterIP, int masterPort){
+            
+            MasterIP = masterIP;
+            MasterPort = masterPort;
             
             server = new MqttFactory().CreateMqttServer();
 
             server.UseApplicationMessageReceivedHandler( e=> 
-            {
+            {   
+                
+                
                 if(e.ApplicationMessage.Topic == "master/response"){
+                    long timeArrived = DateTimeOffset.Now.ToUnixTimeMilliseconds();
+                    Console.WriteLine("\nMaster Control is receiving a message on " +e.ApplicationMessage.Topic+" channel @ " + timeArrived);
                     Console.WriteLine("\nMassage received from client!");
                     Console.WriteLine("ID : " + e.ClientId);
-                    Console.WriteLine("Payload : " + Encoding.UTF8.GetString(e.ApplicationMessage.Payload)); 
+                    Console.WriteLine("Payload : " + Encoding.UTF8.GetString(e.ApplicationMessage.Payload));
+                    Console.WriteLine("Roundtrip latency was ~" + (timeArrived - timeSent) + " milliseconds");
                 }
+
+                
             });                
             
 
@@ -41,7 +53,9 @@ namespace MasterControl
             
             var optionsBuilder = new MqttServerOptionsBuilder()
                 .WithConnectionBacklog(100)
-                .WithDefaultEndpointPort(4503);
+                .WithDefaultEndpointPort(MasterPort);
+
+            Console.WriteLine("Starting Up MQTT Broker on " + MasterIP + ":" + MasterPort);       
             
             await server.StartAsync(optionsBuilder.Build());
             
@@ -52,12 +66,9 @@ namespace MasterControl
 
         public async void publish(string messageText, string topic){ 
             
-            
-            Console.WriteLine("\nMaster Control is sending a message @ " + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff",
-                                            CultureInfo.InvariantCulture));
+            timeSent = DateTimeOffset.Now.ToUnixTimeMilliseconds();
+            Console.WriteLine("\nMaster Control is sending a message on the " +topic+" channel @ " + timeSent);
 
-            timeSent = DateTime.Now.Millisecond;
-            
             var message = new MqttApplicationMessageBuilder()            
                 .WithTopic(topic)
                 .WithPayload(messageText)

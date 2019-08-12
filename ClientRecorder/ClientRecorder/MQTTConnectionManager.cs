@@ -86,16 +86,14 @@ namespace ClientRecorder
                 if(e.ApplicationMessage.Topic == "master/start" ){
                     if (!recording) {
                         recording=true;
-                        publish("\nStart Signal received @ "+ DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff",
-                                            CultureInfo.InvariantCulture),"master/response");
+                        publish("\nStart Signal received","master/response");
                         _recorder.record();
                     }                    
                 }
                 else if(e.ApplicationMessage.Topic == "master/stop" ){ 
                     if(recording){ 
                        recording = false;
-                       publish("\nStop Signal received @ "+ DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff",
-                                            CultureInfo.InvariantCulture),"master/response");
+                       publish("\nStop Signal received","master/response");
                        _recorder.stop();
                     }                    
                 }               
@@ -103,12 +101,12 @@ namespace ClientRecorder
 
             client.UseDisconnectedHandler(e=>{
                 Console.WriteLine("Attempting to Connect to " + MasterIP);
-                Console.WriteLine("\nDisconnected from mqtt broker !");
+                Console.WriteLine("\nDisconnected from MQTT Broker!");
                 connected = false;
             } );
 
             client.UseConnectedHandler(c=>{
-                Console.WriteLine("\nConnected to mqtt broker!");
+                Console.WriteLine("\nConnected to MQTT Broker @ "+MasterIP+":"+MasterPort+"!");
                 connected = true;
             });
 
