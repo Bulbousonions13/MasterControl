@@ -37,9 +37,7 @@ namespace MasterControl
             }           
             );
         }
-        public async Task StartServer(){ 
-            
-          
+        public async Task StartServer(){        
             
             var optionsBuilder = new MqttServerOptionsBuilder()
                 .WithConnectionBacklog(100)

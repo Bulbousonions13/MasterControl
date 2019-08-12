@@ -1,6 +1,6 @@
 {
   "Setup": false,
-  "MasterIP": "192.168.0.197",
-  "MasterPort": 4503,
+  "MasterIP": "test.mosquitto.org",
+  "MasterPort": 1883,
   "ActiveDevice#": 0
 }

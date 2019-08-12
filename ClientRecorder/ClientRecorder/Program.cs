@@ -8,7 +8,7 @@ namespace ClientRecorder
     class Program
     {
         
-        private static MQTTConnectionManager client;
+        private static MQTTConnectionManager clientConnex;
         [DllImport("kernel32.dll", ExactSpelling = true)]
 
         private static extern IntPtr GetConsoleWindow();
@@ -59,17 +59,17 @@ namespace ClientRecorder
                 Console.ReadLine();
             } else {
 
-                client = new MQTTConnectionManager(MasterIP,MasterPort,ActiveDevice);
+                clientConnex = new MQTTConnectionManager(MasterIP,MasterPort,ActiveDevice);
                 try
                 {
-                    client.connect().Wait(); 
+                    clientConnex.connect().Wait(); 
                     Console.ReadLine();
                                 
                 }
                 catch(Exception e){ 
                 
                     Console.WriteLine("There was an error on the Client Side");
-                    Console.WriteLine(e);
+                    Console.WriteLine(e.StackTrace);
                 }
             }       
         }       

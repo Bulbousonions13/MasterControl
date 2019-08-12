@@ -21,3 +21,4 @@ C:\Users\eweiss\Desktop\A-TEAMS2\MasterControl\MasterControl\obj\Release\MasterC
 C:\Users\eweiss\Desktop\A-TEAMS2\MasterControl\MasterControl\obj\Release\MasterControl.csproj.CopyComplete
 C:\Users\eweiss\Desktop\A-TEAMS2\MasterControl\MasterControl\obj\Release\MasterControl.exe
 C:\Users\eweiss\Desktop\A-TEAMS2\MasterControl\MasterControl\obj\Release\MasterControl.pdb
+C:\Users\eweiss\Desktop\A-TEAMS2\MasterControl\MasterControl\obj\Release\MasterControl.csprojAssemblyReference.cache
