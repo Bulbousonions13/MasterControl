@@ -43,7 +43,7 @@ namespace ClientRecorder
                 .WithAutoReconnectDelay(TimeSpan.FromSeconds(5))
                 .WithClientOptions(new MqttClientOptionsBuilder()
                     .WithClientId("Client "+Dns.GetHostName())
-                    .WithTcpServer(MasterIP,MasterPort)                    
+                    .WithTcpServer(MasterIP,MasterPort)                   
                     .WithCleanSession()
                     .Build())
                 .Build();
@@ -102,6 +102,7 @@ namespace ClientRecorder
             });
 
             client.UseDisconnectedHandler(e=>{
+                Console.WriteLine("Attempting to Connect to " + MasterIP);
                 Console.WriteLine("\nDisconnected from mqtt broker !");
                 connected = false;
             } );

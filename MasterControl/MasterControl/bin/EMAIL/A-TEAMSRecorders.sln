@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.136
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MasterControl", "MasterControl.csproj", "{114A6042-C712-4094-AE2E-7D7673D8CCCA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClientRecorder", "..\..\ClientRecorder\ClientRecorder\ClientRecorder.csproj", "{4FBC8035-43ED-41CA-ABAA-B4C6B5C54F2E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{114A6042-C712-4094-AE2E-7D7673D8CCCA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{114A6042-C712-4094-AE2E-7D7673D8CCCA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{114A6042-C712-4094-AE2E-7D7673D8CCCA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{114A6042-C712-4094-AE2E-7D7673D8CCCA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4FBC8035-43ED-41CA-ABAA-B4C6B5C54F2E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4FBC8035-43ED-41CA-ABAA-B4C6B5C54F2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4FBC8035-43ED-41CA-ABAA-B4C6B5C54F2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4FBC8035-43ED-41CA-ABAA-B4C6B5C54F2E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CDC53B64-2143-41FB-A4DB-0DBB0FD32B54}
+	EndGlobalSection
+EndGlobal
