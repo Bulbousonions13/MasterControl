@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="MessagePack" Version="1.7.3.7" />   
+    <PackageReference Include="MessagePack" Version="1.9.3" />   
     <PackageReference Include="MQTTnet" Version="3.0.5" />
     <PackageReference Include="MQTTnet.Extensions.ManagedClient" Version="3.0.5" />
     <PackageReference Include="Msa.Interfaces.Bus.NetCore.Mqtt" Version="0.3.0" />
